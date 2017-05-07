@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+	<!-- 登录 -->
+	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>com.chq.controller.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/loginReq</url-pattern>
+	</servlet-mapping>
+
+	<!-- 注册 -->
+	<servlet>
+		<servlet-name>RegisterServlet</servlet-name>
+		<servlet-class>com.chq.controller.RegisterServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>RegisterServlet</servlet-name>
+		<url-pattern>/registerReq</url-pattern>
+	</servlet-mapping>
+
+	<!-- 过滤器 -->
+	<filter>
+		<filter-name>FilterReq</filter-name>
+		<filter-class>com.chq.filter.DoFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>FilterReq</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	
+	<!-- 登录验证（验证账户是否已注册） -->
+	<servlet>
+		<servlet-name>CheckUser</servlet-name>
+		<servlet-class>com.chq.controller.CheckServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>CheckUser</servlet-name>
+		<url-pattern>/checkReq</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 分页 -->
+	<servlet>
+		<servlet-name>PagingServlet</servlet-name>
+		<servlet-class>com.chq.controller.PagingServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>PagingServlet</servlet-name>
+		<url-pattern>/pagingReq</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 商品删除 -->
+	<servlet>
+		<servlet-name>DelGoods</servlet-name>
+		<servlet-class>com.chq.controller.DelGoodsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>DelGoods</servlet-name>
+		<url-pattern>/delGoodsReq</url-pattern>
+	</servlet-mapping>
+	
+	<!-- 统计页面访问次数 -->
+	<servlet>
+		<servlet-name>countServlet</servlet-name>
+		<servlet-class>com.chq.controller.CountServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>countServlet</servlet-name>
+		<url-pattern>/times.html</url-pattern>
+	</servlet-mapping>
+
+
+	<welcome-file-list>
+		<welcome-file>home/home.jsp</welcome-file>
+	</welcome-file-list>
+</web-app>
